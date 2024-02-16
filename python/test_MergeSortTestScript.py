@@ -8,7 +8,7 @@ import PracticeFile as pf
 # Test case 2: Large sorted array
 array2 = [i for i in range(1000000)]
 start_time2 = time.time()
-sorted_array2 = pf.merge_sort(array2)
+sorted_array2 = ms.merge_sort(array2)
 end_time2 = time.time()
 print("Test case 2: Large sorted array")
 print("Input array size:", len(array2))

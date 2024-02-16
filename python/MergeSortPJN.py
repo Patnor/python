@@ -7,12 +7,14 @@ where n is the number of elements in the array.
 """
 
 # Function to perform merge sort on an array
-def merge_sort(array):
+def merge_sort(array,  desc = False):
     """
     Sorts an array using the merge sort algorithm.
 
     Parameters:
     array (list): The array to be sorted.
+    desc (bool): A flag to indicate whether to sort the array in 
+                descending order. Defaults to False.
 
     Returns:
     list: The sorted array.
@@ -23,20 +25,22 @@ def merge_sort(array):
         return array
 
     mid = len(array) // 2
-    left = merge_sort(array[:mid])  # Recursively sort the left half of the array
-    right = merge_sort(array[mid:])  # Recursively sort the right half of the array
+    left = merge_sort(array[:mid], desc)  # Recursively sort the left half of the array
+    right = merge_sort(array[mid:], desc)  # Recursively sort the right half of the array
 
     # Merge the sorted left and right halves
-    return merge(left, right)
+    return merge(left, right, desc)
 
 # Function to merge two sorted arrays
-def merge(left, right):
+def merge(left, right, desc):
     """
     Merges two sorted arrays into a single sorted array.
 
     Parameters:
     left (list): The left sorted array.
     right (list): The right sorted array.
+    desc (bool): A flag to indicate whether to merge the arrays in 
+                descending order. Defaults to False.
 
     Returns:
     list: The merged sorted array.
@@ -46,13 +50,22 @@ def merge(left, right):
     i = j = 0  # Initialize pointers for the left and right arrays
 
     # Compare elements from the left and right arrays and add the smaller element to the result
-    while i < len(left) and j < len(right):
-        if left[i] < right[j]:
-            result.append(left[i])
-            i += 1
-        else:
-            result.append(right[j])
-            j += 1
+    if desc:
+        while i < len(left) and j < len(right):
+            if left[i] >= right[j]:
+                result.append(left[i])
+                i += 1
+            else:
+                result.append(right[j])
+                j += 1
+    else:
+        while i < len(left) and j < len(right):
+            if left[i] < right[j]:
+                result.append(left[i])
+                i += 1
+            else:
+                result.append(right[j])
+                j += 1
 
     # Add any remaining elements from the left or right array to the result
     result += left[i:]
