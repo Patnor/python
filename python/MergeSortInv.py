@@ -1,7 +1,24 @@
 
+"""
+    The time complexity of the MergeSortInv function is O(n log n), 
+    where n is the size of the input array
+"""
 
 def MergeSortInv(array):
- 
+    """
+    Sorts an array using the merge sort algorithm and counts the number of 
+    inversions.
+
+    Args:
+        array (list): The array to be sorted.
+
+    Returns:
+        tuple: A tuple containing the sorted array and the number of inversions.
+
+    Example:
+        >>> MergeSortInv([4, 2, 1, 3])
+        ([1, 2, 3, 4], 3)
+    """
     if len(array) <= 1:
         return array, 0
     
@@ -17,6 +34,21 @@ def MergeSortInv(array):
     return merged, invL + invR + inv
 
 def mergeInv(left, right):
+    """
+    Merge two sorted lists and count the number of inversions.
+
+    Args:
+        left (list): The left sorted list.
+        right (list): The right sorted list.
+
+    Returns:
+        tuple: A tuple containing the merged sorted list and the number of 
+        inversions.
+
+    Example:
+        >>> mergeInv([1, 3, 5], [2, 4, 6])
+        ([1, 2, 3, 4, 5, 6], 0)
+    """
     result = []
     i = j = inv = 0
 
