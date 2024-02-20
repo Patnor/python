@@ -20,7 +20,8 @@ increases significantly as the size of the matrices increases.
 # Define a function that performs standard matrix multiplication
 def matrixMultStandard(A, B):
     """
-    Performs standard matrix multiplication.
+    Performs standard matrix multiplication. 
+    Assumes that the input matrices are power of 2.
 
     Args:
         A (list): The first matrix.
