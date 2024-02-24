@@ -2,46 +2,70 @@
 # This is a practice file for learning data structures and algorithms. 
 # in python.
 
-# This file contains the implementation of the merge sort algorithm.
+
 def merge_sort(array, desc = False):
-    
+
     if len(array) <= 1:
         return array
-    
     mid = len(array) // 2
 
-    left_array = merge_sort(array[:mid], desc)
-    right_array = merge_sort(array[mid:], desc)
+    left = merge_sort(array[:mid])
+    right = merge_sort(array[mid:])
 
-    return merge(left_array, right_array, desc)
+    return merge(left, right)
 
 
 
-def merge(arrayLeft, arrayRight, desc):
+def merge(left, right):
 
-    result_array = []
+    i = j = 0
+    result = []
+
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i = i + 1
+        else:
+            result.append(right[j])
+            j += 1
+
+    result += left[i:]
+    result += right[j:]
+
+    return result
+
+
+def merge_sort_inv (array):
+
+    if len(array) <= 1:
+        return array, 0
     
-    i= j = 0
+    mid = len(array) // 2
+    l_inv = 0
+    r_inv = 0
 
-    if desc:
-        while i < len(arrayLeft) and j < len(arrayRight):
-            if arrayLeft[i] >= arrayRight[j]:
-                result_array.append(arrayLeft[i])
-                i += 1
-            else:
-                result_array.append(arrayRight[j])
-                j += 1
-    else:
-        while i < len(arrayLeft) and j < len(arrayRight):
-            if arrayLeft[i] <= arrayRight[j]:
-                result_array.append(arrayLeft[i])
-                i += 1
-            else:
-                result_array.append(arrayRight[j])
-                j += 1
+    left, l_inv = merge_sort_inv(array[:mid])
+    right, r_inv = merge_sort_inv(array[mid:])
 
-    result_array += arrayLeft[i:]
-    result_array += arrayRight[j:]
+    merged, inv = merge_inv(left, right)
 
-    return result_array
+    return merged, l_inv + r_inv + inv
 
+def merge_inv(left, right):
+    
+    i = j = inv = 0
+    result = []
+
+    while i < len(left)  and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+            inv += len(left) - i
+
+    result.extend(left[i:])
+    result.extend(right[j:])
+
+    return result, inv

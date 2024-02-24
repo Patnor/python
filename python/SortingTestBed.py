@@ -3,26 +3,30 @@ import random
 import MergeSortInv as msi
 import MatrixMultStandard as mms
 import MatrixMultStrassen as mmSt
+import PracticeFile as pf
+
+# *****************************************************************
+#               merge sort
+array = [random.randint(0, 3000) for _ in range(208)]
+
+print(array)
+
+sorted_array = ms.merge_sort(array, True)
+
+print()
+print("Sorted array: ")
+print(sorted_array)
 
 
-# array = [random.randint(0, 3000) for _ in range(208)]
 
-# print(array)
+# *****************************************************************
+#               merge sort with inversions
+arrayInv = [6,5,4,3,2,1]
 
-# sorted_array = ms.merge_sort(array)
-
-# print()
-# print("Sorted array: ")
-# print(sorted_array)
-
-# Test script for MergeSortPJN.py
-
-# arrayInv = [6,5,4,3,2,1]
-
-# sorted_arrayInv, inversions = msi.MergeSortInv(arrayInv)
-# print()
-# print("Sorted array: ", sorted_arrayInv)
-# print("Inversions: ", inversions)
+sorted_arrayInv, inversions = pf.merge_sort_inv(arrayInv)
+print()
+print("Sorted array: ", sorted_arrayInv)
+print("Inversions: ", inversions)
 
 
 # *****************************************************************
