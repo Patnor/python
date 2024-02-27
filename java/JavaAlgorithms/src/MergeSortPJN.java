@@ -1,7 +1,38 @@
 import java.util.Arrays;
 
 /**
- * The MergeSortPJN class provides a static method for performing merge sort on an array of integers.
+ * The MergeSortPJN class provides a static method for performing merge sort 
+ * on an array of integers.
+ * 
+ * 
+ * The time complexity of the merge sort algorithm is O(n log n), where 'n' 
+ * represents the number of elements in the input array.
+ * 
+ *  Merge sort is a divide-and-conquer algorithm that works by recursively 
+ * dividing the input array into smaller subarrays, sorting them, and then 
+ * merging them back together. Here's a step-by-step breakdown of the merge 
+ * sort algorithm:
+ * 
+ *  Divide: The input array is divided into two halves repeatedly until each 
+ * subarray contains only one element. This process takes O(log n) time because 
+ * the array is divided in half at each level of recursion.
+ * 
+ *  Merge: The sorted subarrays are then merged back together in a sorted 
+ * manner. The merging process compares the elements from both subarrays and 
+ * places them in the correct order. This merging step takes O(n) time because 
+ * each element in the input array is visited once during the merging process.
+ * 
+ * Repeat: Steps 1 and 2 are repeated recursively until the entire array is sorted.
+ * 
+ * Since the divide step takes O(log n) time and the merge step takes O(n) time, 
+ * the overall time complexity of merge sort is O(n log n). This time complexity 
+ * remains the same regardless of the initial order of the elements in the input 
+ * array.
+ * 
+ * Merge sort is known for its efficiency and stability, making it a popular 
+ * choice for sorting large datasets. However, it does require additional space 
+ * for the temporary arrays used during the merging process, which results in a 
+ * space complexity of O(n). 
  */
 public class MergeSortPJN {
 
@@ -23,7 +54,6 @@ public class MergeSortPJN {
         int[] a_right = merge_sort(Arrays.copyOfRange(array, mid, array.length));
 
         return merge(a_left, a_right);
-
     }
 
     /**

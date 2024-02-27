@@ -3,8 +3,7 @@ import java.util.Arrays;
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
-        MergeSortPJN mergeSortPJN = new MergeSortPJN();
-
+   
         // Rest of your code...
         int [] myArray = {1,6,2,5,4};
         System.out.println(Arrays.toString(MergeSortPJN.merge_sort(myArray)));
