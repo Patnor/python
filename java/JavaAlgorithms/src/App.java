@@ -23,6 +23,30 @@ public class App {
         InsertionSortPJN.sort(arrayInsert5);
         System.out.println(Arrays.toString(myArray2));
         System.out.println(Arrays.toString(arrayInsert5));
-       
+
+        // string manipulations
+        StringManipulation.printMissingNumber(new int[] {1, 2, 3, 4, 6, 7, 9, 8}, 10);
+        // Only one missing number in array
+        int[] iArray = new int[]{1, 2, 3, 5};
+        int missing = StringManipulation.getMissingNumber(iArray, 5);
+        System.out.printf("Missing number in array %s is %d %n", 
+                            Arrays.toString(iArray), missing);
+
+        
+        // Create an array of 1 - 100 with 1 element missing
+        int[] array = new int[99];
+        int missingNumber = 42; // Choose any number between 1 and 100 as the missing number
+
+        int index = 0;
+        for (int i = 1; i <= 100; i++) {
+            if (i == missingNumber) {
+                continue; // Skip the missing number
+            }
+            array[index] = i;
+            index++;
+        }
+
+        System.out.println(Arrays.toString(array));
+        System.out.println(StringManipulation.getMissingNumberSumOfSeries(array));
     }
 }
