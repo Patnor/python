@@ -18,7 +18,7 @@ public class InsertionSortPJN {
             int j = i - 1;
              // Enter a while loop if 'j' is greater than 0 and the value 
              // of 'tmp' is less than the value at index 'j' of the array 'arr'             
-            while(j > 0 && tmp < arr[j]){
+            while(j >= 0 && tmp < arr[j]){
                 arr[j + 1] = arr[j];
                 j--;
             }
