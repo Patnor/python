@@ -54,7 +54,9 @@ public class App {
         InsertionSortPJN.sort(arrayIn);
         System.out.println(Arrays.toString(arrayIn ));
         
-        //System.out.println(Arrays.toString(a_PracticeFile.insertionSort(arrayIn)));
-        
+       // bubble sort
+       int[] arrayBub = {67, 16, 8, 12, 15, 6, 3, 9, 5, 55, 10, 98, 25, 87, 33, 41, 17, 99, 63, 88};
+         BubbleSortPJN.bubbleSortPJN(arrayBub);
+         System.out.println(Arrays.toString(arrayBub));
     }
 }
