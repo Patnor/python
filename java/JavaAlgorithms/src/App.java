@@ -4,6 +4,22 @@ public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
    
+
+        // MyArrayList
+        MyArrayList<Integer> list = new MyArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+        list.remove(3);
+        
+
+        System.out.println("printing the list....");
+        for(int i = 0; i < list.size(); i++){
+            System.out.println(list.get(i));
+        }
+
         // merge sort
         int [] myArray = {1,6,2,5,4};
         System.out.println(Arrays.toString(MergeSortPJN.merge_sort(myArray)));

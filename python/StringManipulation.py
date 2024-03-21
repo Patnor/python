@@ -11,5 +11,18 @@
     How are duplicates removed from an array without using any library?
 '''
 
+# How do you find the duplicate number on a given integer array? 
+def remove_duplicates(nums):
+    seen = set()
+    for num in nums:
+        if num not in seen:
+            seen.add(num)
+        
+    return seen
+
+# Example usage
+arr = [1, 2, 3, 4, 4, 5,5]
+noDoops = remove_duplicates(arr)
+print("No Duplicate numbers:", noDoops)
 
 # 
