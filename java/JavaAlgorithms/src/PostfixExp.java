@@ -23,7 +23,6 @@ public class PostfixExp {
         System.out.println("Postfix Expression: " + newExp);
         System.out.println("Result: " + evaluatePostfix(newExp));
     }
-        
 
     /**
      * Evaluates a postfix expression and returns the result.
@@ -31,20 +30,20 @@ public class PostfixExp {
      * @param exp The postfix expression to evaluate.
      * @return The result of the evaluation.
      */
-    public static int evaluatePostfix(String exp){
+    public static int evaluatePostfix(String exp) {
         Stack<Integer> stack = new Stack<>();
-        for(int i = 0; i < exp.length(); i++){
+        for (int i = 0; i < exp.length(); i++) {
             char c = exp.charAt(i);
-            if(Character.isDigit(c)){
-                // By subtracting the character '0' from c, we effectively 
-                // convert the character digit into its corresponding integer 
-                // value. For example, if c is the character '5', then c - '0' 
+            if (Character.isDigit(c)) {
+                // By subtracting the character '0' from c, we effectively
+                // convert the character digit into its corresponding integer
+                // value. For example, if c is the character '5', then c - '0'
                 // would evaluate to the integer value 5.
                 stack.push(c - '0');
             } else {
                 int val1 = stack.pop();
                 int val2 = stack.pop();
-                switch(c){
+                switch (c) {
                     case '+':
                         stack.push(val2 + val1);
                         break;
@@ -62,8 +61,6 @@ public class PostfixExp {
         }
         return stack.pop();
     }
-
-    
 
     /**
      * Converts an infix expression to a postfix expression.
@@ -89,7 +86,7 @@ public class PostfixExp {
                 }
                 stack.pop(); // Discard the '('
             } else {
-                // Pop and append all operators from the stack with higher or 
+                // Pop and append all operators from the stack with higher or
                 // equal precedence.
                 while (!stack.isEmpty() && precedence(c) <= precedence(stack.peek())) {
                     postfixExp.append(stack.pop());
@@ -123,11 +120,5 @@ public class PostfixExp {
                 return 0;
         }
     }
-
-
-
-
-    
-
 
 }
