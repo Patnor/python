@@ -1,3 +1,4 @@
+package main;
 /**
  * The InsertionSortPJN class provides a static method to sort an array 
  * using the Insertion Sort algorithm.
